@@ -1,11 +1,17 @@
-import CoatOfArms from "./CoatOfArms";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-accent-500 text-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center">
-          <CoatOfArms className="w-16 h-20 mb-4 opacity-80" />
+          <Image
+            src="/images/ad-majoribus.jpg"
+            alt="Blason Mobutu Zemanga"
+            width={64}
+            height={80}
+            className="w-16 h-auto mb-4 opacity-80"
+          />
 
           <h3 className="font-heading text-xl font-bold tracking-wide mb-2">
             MOBUTU ZEMANGA

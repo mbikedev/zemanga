@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import CoatOfArms from "./CoatOfArms";
-
 const navLinks = [
   { href: "#accueil", label: "Accueil" },
   { href: "#a-propos", label: "À Propos" },
@@ -20,7 +18,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo + Name */}
           <a href="#accueil" className="flex items-center gap-3">
-            <CoatOfArms className="w-10 h-10 sm:w-12 sm:h-12" />
+            <img
+              src="/images/ad-majoribus.jpg"
+              alt="Blason Mobutu Zemanga"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+            />
             <span className="font-heading text-lg sm:text-xl font-bold text-accent-500 tracking-wide">
               MOBUTU ZEMANGA
             </span>

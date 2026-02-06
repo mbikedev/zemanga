@@ -1,4 +1,4 @@
-import CoatOfArms from "./CoatOfArms";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -7,7 +7,14 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 bg-gradient-to-b from-primary-50 via-white to-bg-light"
     >
       <div className="text-center max-w-3xl mx-auto">
-        <CoatOfArms className="w-48 h-60 sm:w-56 sm:h-72 lg:w-64 lg:h-80 mx-auto mb-8" />
+        <Image
+          src="/images/ad-majoribus.jpg"
+          alt="Blason Mobutu Zemanga"
+          width={256}
+          height={320}
+          priority
+          className="w-48 h-auto sm:w-56 lg:w-64 mx-auto mb-8"
+        />
 
         <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-accent-500 tracking-wide mb-4">
           MOBUTU ZEMANGA

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Phone, Mail, Globe } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -35,19 +35,6 @@ export default function Contact() {
 
             <div className="space-y-5">
               <a
-                href="tel:+243852908297"
-                className="flex items-center gap-4 text-gray-700 hover:text-primary-600 transition-colors group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center group-hover:bg-primary-100 transition-colors">
-                  <Phone className="w-5 h-5 text-primary-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Téléphone</p>
-                  <p className="font-medium">+243 85 290 82 97</p>
-                </div>
-              </a>
-
-              <a
                 href="mailto:Info@MobutuZemanga.com"
                 className="flex items-center gap-4 text-gray-700 hover:text-primary-600 transition-colors group"
               >
@@ -76,16 +63,10 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className="flex gap-3 mt-8">
-              <a
-                href="tel:+243852908297"
-                className="flex-1 text-center px-5 py-3 bg-secondary-500 text-white font-medium rounded-lg hover:bg-secondary-600 transition-colors"
-              >
-                Appeler
-              </a>
+            <div className="mt-8">
               <a
                 href="mailto:Info@MobutuZemanga.com"
-                className="flex-1 text-center px-5 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
+                className="block text-center px-5 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
               >
                 Envoyer un email
               </a>
