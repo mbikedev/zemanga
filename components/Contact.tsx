@@ -1,7 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, Globe } from "lucide-react";
+import { Mail, Globe, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -64,12 +69,12 @@ export default function Contact() {
             </div>
 
             <div className="mt-8">
-              <a
-                href="mailto:Info@MobutuZemanga.com"
-                className="block text-center px-5 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
+              <Button
+                asChild
+                className="w-full bg-primary-600 hover:bg-primary-700"
               >
-                Envoyer un email
-              </a>
+                <a href="mailto:Info@MobutuZemanga.com">Envoyer un email</a>
+              </Button>
             </div>
           </div>
 
@@ -80,14 +85,15 @@ export default function Contact() {
             </h3>
 
             {submitted ? (
-              <div className="bg-secondary-500/10 border border-secondary-500/30 rounded-xl p-8 text-center">
-                <p className="text-secondary-500 font-medium text-lg mb-2">
+              <Alert className="bg-secondary-500/10 border-secondary-500/30">
+                <CheckCircle className="h-5 w-5 text-secondary-500" />
+                <AlertTitle className="text-secondary-500 font-medium text-lg">
                   Merci pour votre message !
-                </p>
-                <p className="text-gray-600">
+                </AlertTitle>
+                <AlertDescription className="text-gray-600">
                   Nous vous répondrons dans les plus brefs délais.
-                </p>
-              </div>
+                </AlertDescription>
+              </Alert>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Honeypot */}
@@ -104,14 +110,9 @@ export default function Contact() {
                   aria-hidden="true"
                 />
 
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-1.5"
-                  >
-                    Nom complet
-                  </label>
-                  <input
+                <div className="space-y-2">
+                  <Label htmlFor="name">Nom complet</Label>
+                  <Input
                     type="text"
                     id="name"
                     required
@@ -119,19 +120,14 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
                     placeholder="Votre nom"
+                    className="h-12"
                   />
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1.5"
-                  >
-                    Email
-                  </label>
-                  <input
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
                     type="email"
                     id="email"
                     required
@@ -139,19 +135,14 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
                     placeholder="votre@email.com"
+                    className="h-12"
                   />
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1.5"
-                  >
-                    Message
-                  </label>
-                  <textarea
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
                     id="message"
                     required
                     rows={4}
@@ -159,17 +150,18 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors resize-none"
                     placeholder="Votre message..."
+                    className="resize-none"
                   />
                 </div>
 
-                <button
+                <Button
                   type="submit"
-                  className="w-full px-6 py-3.5 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/20"
+                  size="lg"
+                  className="w-full bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/20"
                 >
                   Envoyer le message
-                </button>
+                </Button>
               </form>
             )}
           </div>

@@ -1,4 +1,5 @@
 import { Briefcase, Globe, Microscope, Network } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
@@ -40,20 +41,22 @@ export default function Services() {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <div
+              <Card
                 key={service.title}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-primary-500/30 hover:-translate-y-1 transition-all duration-300"
+                className="hover:shadow-lg hover:border-primary-500/30 hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-14 h-14 rounded-lg bg-primary-50 flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-primary-600" />
-                </div>
-                <h3 className="font-heading text-lg font-semibold text-accent-500 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+                <CardContent className="p-6">
+                  <div className="w-14 h-14 rounded-lg bg-primary-50 flex items-center justify-center mb-5">
+                    <Icon className="w-7 h-7 text-primary-600" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-accent-500 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
             );
           })}
         </div>

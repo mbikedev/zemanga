@@ -1,4 +1,12 @@
-import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+const titles = [
+  "Chef d'Entreprises",
+  "Dirigeant d'ONGs",
+  "Directeur de Centres de Recherches",
+  "Consultant International",
+];
 
 export default function Hero() {
   return (
@@ -7,12 +15,9 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 bg-gradient-to-b from-primary-50 via-white to-bg-light"
     >
       <div className="text-center max-w-3xl mx-auto">
-        <Image
+        <img
           src="/images/ad-majoribus.jpg"
           alt="Blason Mobutu Zemanga"
-          width={256}
-          height={320}
-          priority
           className="w-48 h-auto sm:w-56 lg:w-64 mx-auto mb-8"
         />
 
@@ -25,27 +30,24 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {[
-            "Chef d'Entreprises",
-            "Dirigeant d'ONGs",
-            "Directeur de Centres de Recherches",
-            "Consultant International",
-          ].map((title) => (
-            <span
+          {titles.map((title) => (
+            <Badge
               key={title}
-              className="px-4 py-2 bg-white border border-primary-500/30 text-accent-500 text-sm sm:text-base rounded-full shadow-sm"
+              variant="outline"
+              className="px-4 py-2 bg-white border-primary-500/30 text-accent-500 text-sm sm:text-base rounded-full shadow-sm"
             >
               {title}
-            </span>
+            </Badge>
           ))}
         </div>
 
-        <a
-          href="#a-propos"
-          className="inline-flex items-center px-8 py-3.5 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/20"
+        <Button
+          asChild
+          size="lg"
+          className="bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/20"
         >
-          En savoir plus
-        </a>
+          <a href="#a-propos">En savoir plus</a>
+        </Button>
       </div>
     </section>
   );
