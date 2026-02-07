@@ -49,9 +49,9 @@ export default function Header() {
             ))}
             <Button asChild className="bg-primary-600 hover:bg-primary-700">
               <a
-                href="mailto:info@mobutuzemanga.com"
+                href="#contact"
               >
-                Visiter le site principal
+                Nous contacter
               </a>
             </Button>
           </nav>
@@ -118,10 +118,10 @@ export default function Header() {
                     size="lg"
                   >
                     <a
-                      href="mailto:info@mobutuzemanga.com"
+                      href="#contact"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Visiter le site principal
+                      Nous contacter
                     </a>
                   </Button>
                 </SheetClose>

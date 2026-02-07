@@ -65,58 +65,19 @@ export default function Contact() {
         </h2>
         <div className="w-20 h-1 bg-primary-500 mx-auto mb-12 rounded-full" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact info */}
-          <div>
-            <h3 className="font-heading text-xl font-semibold text-accent-500 mb-6">
-              Coordonnées
-            </h3>
-
-            <div className="space-y-5">
-              <a
-                href="mailto:info@mobutuzemanga.com"
-                className="flex items-center gap-4 text-gray-700 hover:text-primary-600 transition-colors group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center group-hover:bg-primary-100 transition-colors">
-                  <Mail className="w-5 h-5 text-primary-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Email</p>
-                  <p className="font-medium">info@mobutuzemanga.com</p>
-                </div>
-              </a>
-
-              <a
-                href="https://mobutuzemanga.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 text-gray-700 hover:text-primary-600 transition-colors group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center group-hover:bg-primary-100 transition-colors">
-                  <Globe className="w-5 h-5 text-primary-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Site web</p>
-                  <p className="font-medium">MobutuZemanga.com</p>
-                </div>
-              </a>
-            </div>
-
-            <div className="mt-8">
-              <Button
-                asChild
-                className="w-full bg-primary-600 hover:bg-primary-700"
-              >
-                <a href="mailto:info@mobutuzemanga.com">Envoyer un email</a>
-              </Button>
-            </div>
+        <div className="max-w-2xl mx-auto">
+          {/* Introduction text */}
+          <div className="text-center mb-8">
+            <p className="text-lg text-gray-600 mb-4">
+              Vous avez une question ou souhaitez collaborer ? N'hésitez pas à nous contacter.
+            </p>
+            <p className="text-sm text-gray-500">
+              Nous vous répondrons dans les plus brefs délais.
+            </p>
           </div>
 
           {/* Contact form */}
-          <div>
-            <h3 className="font-heading text-xl font-semibold text-accent-500 mb-6">
-              Envoyer un message
-            </h3>
+          <div className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100">
 
             {submitted ? (
               <Alert className="bg-secondary-500/10 border-secondary-500/30">
