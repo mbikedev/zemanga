@@ -39,13 +39,18 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {titles.map((title) => (
+          {titles.map((title, index) => (
             <Badge
               key={title}
               variant="outline"
-              className="px-4 py-2 bg-white border-primary-500/30 text-accent-500 text-sm sm:text-base rounded-full shadow-sm"
+              className="group px-5 py-2.5 bg-gradient-to-br from-white to-primary-50 border-2 border-primary-400/40 hover:border-primary-500 text-primary-700 font-semibold text-sm sm:text-base rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-default"
+              style={{
+                animationDelay: `${index * 100}ms`,
+              }}
             >
-              {title}
+              <span className="bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent group-hover:from-accent-500 group-hover:to-primary-600 transition-all duration-300">
+                {title}
+              </span>
             </Badge>
           ))}
         </div>
