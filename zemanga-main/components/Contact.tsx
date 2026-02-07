@@ -29,22 +29,23 @@ export default function Contact() {
     setError("");
 
     try {
-      const response = await fetch('/contact.php', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          access_key: '60703374-0885-4d4c-91be-907d9cf8423a',
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          honeypot: formData.honeypot,
+          subject: 'Nouveau message depuis mobutuzemanga.com',
         }),
       });
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
+      if (data.success) {
         setSubmitted(true);
         setFormData({ name: "", email: "", message: "", honeypot: "" });
       } else {
