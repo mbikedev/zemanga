@@ -59,29 +59,33 @@ export default function Header() {
           {/* Mobile menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="md:hidden hover:bg-primary-50 transition-colors">
+                <Menu className="h-6 w-6 text-primary-600" />
                 <span className="sr-only">Ouvrir le menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
               aria-describedby={undefined}
-              className="flex flex-col p-0"
+              className="flex flex-col p-0 w-[300px] sm:w-[350px]"
             >
               {/* Header with branding */}
-              <SheetHeader className="border-b border-gray-100 bg-gradient-to-br from-primary-50 to-white p-6">
-                <div className="flex items-center gap-3">
-                  <img
-                    src="/images/ad-majoribus.jpg"
-                    alt="Blason"
-                    className="w-12 h-12 object-contain"
-                  />
+              <SheetHeader className="border-b border-gray-100 bg-gradient-to-br from-primary-100 via-accent-50 to-white p-6 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-accent-500/10"></div>
+                <div className="relative flex items-center gap-3">
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-40"></div>
+                    <img
+                      src="/images/ad-majoribus.jpg"
+                      alt="Blason"
+                      className="relative w-14 h-14 object-contain rounded-full bg-white p-1 shadow-lg"
+                    />
+                  </div>
                   <div>
-                    <SheetTitle className="font-heading text-lg tracking-wide text-accent-500">
+                    <SheetTitle className="font-heading text-lg tracking-wide bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                       MOBUTU ZEMANGA
                     </SheetTitle>
-                    <p className="font-motto text-xs italic text-primary-600 mt-0.5">
+                    <p className="font-motto text-xs italic text-primary-600/80 mt-0.5">
                       Ad majoribus dei auxilio
                     </p>
                   </div>
@@ -89,18 +93,21 @@ export default function Header() {
               </SheetHeader>
 
               {/* Navigation links */}
-              <nav className="flex-1 px-4 py-6">
-                <div className="space-y-1">
-                  {navLinks.map((link) => {
+              <nav className="flex-1 px-4 py-6 bg-gradient-to-b from-white to-gray-50">
+                <div className="space-y-2">
+                  {navLinks.map((link, index) => {
                     const Icon = link.icon;
                     return (
                       <SheetClose asChild key={link.href}>
                         <a
                           href={link.href}
-                          className="flex items-center gap-4 px-4 py-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors group"
+                          className="flex items-center gap-4 px-4 py-3.5 rounded-xl text-gray-700 hover:bg-gradient-to-r hover:from-primary-50 hover:to-accent-50 hover:text-primary-700 transition-all duration-300 group border border-transparent hover:border-primary-200 hover:shadow-md hover:scale-[1.02]"
+                          style={{ animationDelay: `${index * 50}ms` }}
                         >
-                          <Icon className="w-5 h-5 text-gray-400 group-hover:text-primary-600 transition-colors" />
-                          <span className="text-base font-medium">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center group-hover:from-primary-200 group-hover:to-accent-200 transition-all duration-300 group-hover:scale-110">
+                            <Icon className="w-5 h-5 text-primary-600 group-hover:text-accent-600 transition-colors" />
+                          </div>
+                          <span className="text-base font-semibold flex-1">
                             {link.label}
                           </span>
                         </a>
@@ -109,18 +116,22 @@ export default function Header() {
                   })}
                 </div>
 
-                <div className="my-6 border-t border-gray-100" />
+                <div className="my-6 relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+                  </div>
+                </div>
 
                 <SheetClose asChild>
                   <Button
                     asChild
-                    className="w-full bg-primary-600 hover:bg-primary-700 gap-2"
+                    className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                     size="lg"
                   >
                     <a
                       href="#contact"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <Mail className="w-4 h-4" />
                       Nous contacter
                     </a>
                   </Button>
@@ -128,10 +139,15 @@ export default function Header() {
               </nav>
 
               {/* Footer */}
-              <SheetFooter className="border-t border-gray-100 bg-gray-50 px-6 py-4">
-                <p className="text-xs text-gray-400 text-center">
-                  &copy; {new Date().getFullYear()} Mobutu Zemanga
-                </p>
+              <SheetFooter className="border-t border-gray-200 bg-gradient-to-br from-gray-50 to-primary-50/30 px-6 py-5">
+                <div className="w-full text-center space-y-2">
+                  <p className="text-xs font-medium bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+                    Mobutu Zemanga
+                  </p>
+                  <p className="text-xs text-gray-400">
+                    &copy; {new Date().getFullYear()} Tous droits réservés
+                  </p>
+                </div>
               </SheetFooter>
             </SheetContent>
           </Sheet>
