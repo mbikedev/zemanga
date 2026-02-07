@@ -6,18 +6,23 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "700"],
+  preload: true,
 });
 
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const ebGaramond = EB_Garamond({
   variable: "--font-motto",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "600"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
