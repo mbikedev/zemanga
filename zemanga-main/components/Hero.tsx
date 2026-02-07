@@ -15,11 +15,16 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-16 bg-gradient-to-b from-primary-50 via-white to-bg-light"
     >
       <div className="text-center max-w-3xl mx-auto">
-        <img
-          src="/images/ad-majoribus.jpg"
-          alt="Blason Mobutu Zemanga"
-          className="w-full h-auto mx-auto mb-12"
-        />
+        <div className="relative mb-12 group">
+          <div className="absolute -inset-4 bg-gradient-to-r from-primary-400/20 via-accent-400/20 to-primary-400/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-75"></div>
+          <div className="relative bg-white p-6 rounded-2xl shadow-2xl ring-1 ring-gray-200 group-hover:shadow-3xl group-hover:scale-[1.02] transition-all duration-500">
+            <img
+              src="/images/ad-majoribus.jpg"
+              alt="Blason Mobutu Zemanga"
+              className="w-full h-auto mx-auto rounded-xl"
+            />
+          </div>
+        </div>
 
         <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide mb-6 flex flex-col gap-3">
           <div className="text-lg sm:text-xl lg:text-2xl font-normal tracking-widest text-primary-600 uppercase">
