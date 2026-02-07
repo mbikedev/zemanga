@@ -31,9 +31,12 @@ export default function Hero() {
           <div className="h-1 w-24 bg-gradient-to-r from-primary-600 to-accent-500 mx-auto rounded-full"></div>
         </h1>
 
-        <p className="font-motto text-lg sm:text-xl lg:text-2xl italic text-primary-600 mb-8">
-          &ldquo;Ad majoribus dei auxilio&rdquo;
-        </p>
+        <div className="mb-10">
+          <p className="font-motto text-xl sm:text-2xl lg:text-3xl italic font-semibold bg-gradient-to-r from-accent-500 via-primary-600 to-accent-500 bg-clip-text text-transparent leading-relaxed drop-shadow-md">
+            &ldquo;Ad majoribus dei auxilio&rdquo;
+          </p>
+          <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-accent-400 to-transparent mx-auto mt-3"></div>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {titles.map((title) => (
