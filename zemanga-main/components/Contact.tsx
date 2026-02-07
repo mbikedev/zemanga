@@ -36,10 +36,13 @@ export default function Contact() {
         },
         body: JSON.stringify({
           access_key: '60703374-0885-4d4c-91be-907d9cf8423a',
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
           subject: 'Nouveau message depuis mobutuzemanga.com',
+          from_name: formData.name,
+          email: formData.email,
+          replyto: formData.email,
+          'Message': '📩 Nouveau formulaire de contact reçu sur votre site web. Détails ci-dessous:\n\n' + formData.message,
+          'Nom du contact': formData.name,
+          'Email du contact': formData.email,
         }),
       });
 
