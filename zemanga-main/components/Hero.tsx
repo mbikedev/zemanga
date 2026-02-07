@@ -21,9 +21,14 @@ export default function Hero() {
           className="w-full h-auto mx-auto mb-12"
         />
 
-        <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide mb-4 flex flex-col gap-2">
-          <div className="text-accent-500">MONSIEUR</div>
-          <div className="text-accent-500">MOBUTU ZEMANGA</div>
+        <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-wide mb-6 flex flex-col gap-3">
+          <div className="text-lg sm:text-xl lg:text-2xl font-normal tracking-widest text-primary-600 uppercase">
+            Monsieur
+          </div>
+          <div className="bg-gradient-to-r from-primary-600 via-accent-500 to-primary-700 bg-clip-text text-transparent leading-tight drop-shadow-lg">
+            MOBUTU ZEMANGA
+          </div>
+          <div className="h-1 w-24 bg-gradient-to-r from-primary-600 to-accent-500 mx-auto rounded-full"></div>
         </h1>
 
         <p className="font-motto text-lg sm:text-xl lg:text-2xl italic text-primary-600 mb-8">
