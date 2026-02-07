@@ -40,7 +40,7 @@ export default function Contact() {
 
             <div className="space-y-5">
               <a
-                href="mailto:Info@MobutuZemanga.com"
+                href="mailto:info@mobutuzemanga.com"
                 className="flex items-center gap-4 text-gray-700 hover:text-primary-600 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center group-hover:bg-primary-100 transition-colors">
@@ -48,7 +48,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
-                  <p className="font-medium">Info@MobutuZemanga.com</p>
+                  <p className="font-medium">info@mobutuzemanga.com</p>
                 </div>
               </a>
 
@@ -73,7 +73,7 @@ export default function Contact() {
                 asChild
                 className="w-full bg-primary-600 hover:bg-primary-700"
               >
-                <a href="mailto:Info@MobutuZemanga.com">Envoyer un email</a>
+                <a href="mailto:info@mobutuzemanga.com">Envoyer un email</a>
               </Button>
             </div>
           </div>
