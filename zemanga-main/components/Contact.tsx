@@ -16,11 +16,45 @@ export default function Contact() {
     honeypot: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+
+    // Honeypot check
     if (formData.honeypot) return;
-    setSubmitted(true);
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          honeypot: formData.honeypot,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "", honeypot: "" });
+      } else {
+        setError(data.message || "Une erreur est survenue. Veuillez réessayer.");
+      }
+    } catch (err) {
+      setError("Impossible d'envoyer le message. Vérifiez votre connexion.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -95,6 +129,14 @@ export default function Contact() {
                 </AlertDescription>
               </Alert>
             ) : (
+              <>
+                {error && (
+                  <Alert className="bg-red-50 border-red-200 mb-4">
+                    <AlertDescription className="text-red-600">
+                      {error}
+                    </AlertDescription>
+                  </Alert>
+                )}
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Honeypot */}
                 <input
@@ -158,11 +200,13 @@ export default function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/20"
+                  disabled={loading}
+                  className="w-full bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Envoyer le message
+                  {loading ? "Envoi en cours..." : "Envoyer le message"}
                 </Button>
               </form>
+              </>
             )}
           </div>
         </div>
