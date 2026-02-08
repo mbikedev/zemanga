@@ -87,9 +87,9 @@ export default function Hero() {
           <Button
             asChild
             size="lg"
-            className="group relative overflow-hidden bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 shadow-xl shadow-primary-400/30 hover:shadow-2xl hover:shadow-primary-500/40 hover:scale-105 transition-all duration-300 px-8 py-6 text-base font-bold"
+            className="group relative overflow-hidden bg-gradient-to-r from-purple-300 to-orange-400 hover:from-orange-800 hover:to-orange-900 text-white shadow-xl shadow-primary-400/30 hover:shadow-2xl hover:shadow-primary-500/40 hover:scale-105 transition-all duration-300 px-8 py-6 text-base font-bold"
           >
-            <a href="#a-propos" className="flex items-center gap-2">
+            <a href="#a-propos" className="flex items-center gap-2 text-white font-bold">
               <span>Découvrir mon parcours</span>
               <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
             </a>
