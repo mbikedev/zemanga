@@ -145,7 +145,10 @@ export default function Header() {
                     Mobutu Zemanga
                   </p>
                   <p className="text-xs text-gray-400">
-                    &copy; {new Date().getFullYear()} Tous droits réservés
+                    &copy; {new Date().getFullYear()} Mobutu Zemanga. Tous droits réservés.
+                  </p>
+                  <p className="text-xs text-gray-400">
+                    Conception du site par Mbagnick Gaye
                   </p>
                 </div>
               </SheetFooter>

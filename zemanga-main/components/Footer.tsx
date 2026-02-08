@@ -38,6 +38,9 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Mobutu Zemanga. Tous droits
               réservés.
             </p>
+            <p className="text-gray-400 text-sm mt-2">
+              Conception du site par Mbagnick Gaye
+            </p>
           </div>
         </div>
       </div>
