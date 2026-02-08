@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, Home, User, Briefcase, Mail, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, Home, User, Briefcase, Mail, ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -20,38 +21,75 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/98 backdrop-blur-md shadow-lg shadow-primary-100/50 border-b border-primary-100"
+          : "bg-white/80 backdrop-blur-sm border-b border-gray-100"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo + Name */}
-          <a href="#accueil" className="flex items-center gap-3">
-            <img
-              src="/images/ad-majoribus.jpg"
-              alt="Blason Mobutu Zemanga"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
-            />
-            <span className="font-heading text-lg sm:text-xl font-bold text-accent-500 tracking-wide">
-              MOBUTU ZEMANGA
-            </span>
+          <a
+            href="#accueil"
+            className="flex items-center gap-3 group transition-all duration-300 hover:scale-105"
+          >
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
+              <img
+                src="/images/ad-majoribus.jpg"
+                alt="Blason Mobutu Zemanga"
+                className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full ring-2 ring-primary-200/50 group-hover:ring-primary-400 transition-all duration-300"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-heading text-base sm:text-lg font-bold bg-gradient-to-r from-primary-700 via-accent-600 to-primary-700 bg-clip-text text-transparent tracking-wide">
+                MOBUTU ZEMANGA
+              </span>
+              <span className="hidden sm:block font-motto text-[10px] italic text-primary-600/70">
+                Ad majoribus dei auxilio
+              </span>
+            </div>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <Button asChild className="bg-primary-600 hover:bg-primary-700">
-              <a
-                href="#contact"
-              >
-                Nous contacter
+          <nav className="hidden md:flex items-center gap-2 lg:gap-4">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="group relative px-4 py-2 text-sm font-semibold text-gray-700 hover:text-primary-700 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-2">
+                    <Icon className="w-4 h-4 opacity-0 group-hover:opacity-100 -ml-6 group-hover:ml-0 transition-all duration-300" />
+                    <span>{link.label}</span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 to-accent-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
+                </a>
+              );
+            })}
+            <Button
+              asChild
+              className="ml-2 bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white shadow-lg hover:shadow-xl hover:shadow-primary-300/50 hover:scale-105 transition-all duration-300 gap-2 font-bold"
+            >
+              <a href="#contact" className="text-white">
+                <Sparkles className="w-4 h-4" />
+                <span>Nous contacter</span>
               </a>
             </Button>
           </nav>

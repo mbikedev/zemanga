@@ -63,12 +63,17 @@ export default function About() {
 
           {/* Description */}
           <div className="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed text-base sm:text-lg text-center lg:text-left">
-            <p className="text-xl font-semibold text-gray-800">
-              <strong className="text-accent-600 font-bold">
-                Mobutu Zemanga
-              </strong>{" "}
-              est un leader visionnaire dont le parcours exceptionnel s&apos;étend sur plusieurs domaines stratégiques.
-            </p>
+            <div className="relative mb-8">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary-100/50 via-accent-100/50 to-primary-100/50 rounded-2xl blur-xl opacity-60" />
+              <p className="relative text-xl sm:text-2xl lg:text-3xl font-bold leading-relaxed text-gray-900 bg-white/50 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-primary-100">
+                <strong className="bg-gradient-to-r from-primary-700 via-accent-600 to-primary-700 bg-clip-text text-transparent">
+                  Mobutu Zemanga
+                </strong>{" "}
+                <span className="text-gray-800">
+                  est un leader visionnaire dont le parcours exceptionnel s&apos;étend sur plusieurs domaines stratégiques.
+                </span>
+              </p>
+            </div>
             <p>
               Entrepreneur accompli, il dirige avec succès plusieurs entreprises, contribuant activement au développement économique. Sa capacité à identifier et saisir les opportunités de croissance fait de lui un acteur majeur du monde des affaires.
             </p>
