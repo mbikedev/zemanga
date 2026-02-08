@@ -45,8 +45,8 @@ export default function Services() {
                 key={service.title}
                 className="hover:shadow-lg hover:border-primary-500/30 hover:-translate-y-1 transition-all duration-300"
               >
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 rounded-lg bg-primary-50 flex items-center justify-center mb-5">
+                <CardContent className="p-6 text-center lg:text-left">
+                  <div className="w-14 h-14 rounded-lg bg-primary-50 flex items-center justify-center mb-5 mx-auto lg:mx-0">
                     <Icon className="w-7 h-7 text-primary-600" />
                   </div>
                   <h3 className="font-heading text-lg font-semibold text-accent-500 mb-3">
