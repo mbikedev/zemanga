@@ -85,9 +85,9 @@ export default function Header() {
             })}
             <Button
               asChild
-              className="ml-2 bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white shadow-lg hover:shadow-xl hover:shadow-primary-300/50 hover:scale-105 transition-all duration-300 gap-2 font-bold"
+              className="ml-2 bg-gradient-to-r from-purple-300 to-orange-400 hover:from-orange-800 hover:to-orange-900 text-white shadow-lg hover:shadow-xl hover:shadow-primary-300/50 hover:scale-105 transition-all duration-300 gap-2 font-bold"
             >
-              <a href="#contact" className="text-white">
+              <a href="#contact" className="text-white font-bold">
                 <Sparkles className="w-4 h-4" />
                 <span>Nous contacter</span>
               </a>

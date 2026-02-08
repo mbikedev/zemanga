@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, Globe, CheckCircle, Send, User, MessageSquare } from "lucide-react";
+import { Mail, CheckCircle, Send, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -98,27 +98,6 @@ export default function Contact() {
                 className="text-primary-600 hover:text-accent-600 font-medium text-sm transition-colors"
               >
                 info@mobutuzemanga.com
-              </a>
-            </div>
-
-            {/* Website Card */}
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center lg:text-left">
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center mb-4 mx-auto lg:mx-0 group-hover:from-primary-200 group-hover:to-accent-200 transition-all duration-300">
-                <Globe className="w-7 h-7 text-primary-600 group-hover:text-accent-600 transition-colors" />
-              </div>
-              <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
-                Site Web
-              </h3>
-              <p className="text-sm text-gray-600 mb-3">
-                Visitez notre site principal
-              </p>
-              <a
-                href="https://mobutuzemanga.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary-600 hover:text-accent-600 font-medium text-sm transition-colors"
-              >
-                mobutuzemanga.com
               </a>
             </div>
 
@@ -231,7 +210,7 @@ export default function Contact() {
                       type="submit"
                       size="lg"
                       disabled={loading}
-                      className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 h-12 text-base font-semibold"
+                      className="w-full bg-gradient-to-r from-purple-300 to-orange-400 hover:from-orange-800 hover:to-orange-900 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 h-12 text-base font-bold"
                     >
                       {loading ? (
                         <span className="flex items-center gap-2">
