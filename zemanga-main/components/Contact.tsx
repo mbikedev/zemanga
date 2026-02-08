@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, Globe, CheckCircle } from "lucide-react";
+import { Mail, Globe, CheckCircle, Send, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -62,117 +62,193 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-accent-500 text-center mb-4">
-          Contact
-        </h2>
-        <div className="w-20 h-1 bg-primary-500 mx-auto mb-12 rounded-full" />
+    <section id="contact" className="py-20 px-4 bg-gradient-to-br from-primary-50/30 via-white to-accent-50/30 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-accent-100/40 to-primary-100/40 rounded-full blur-3xl -z-0" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-primary-100/30 to-accent-100/30 rounded-full blur-3xl -z-0" />
 
-        <div className="max-w-2xl mx-auto">
-          {/* Introduction text */}
-          <div className="text-center mb-8">
-            <p className="text-lg text-gray-600 mb-4">
-              Vous avez une question ou souhaitez collaborer ? N'hésitez pas à nous contacter.
-            </p>
-            <p className="text-sm text-gray-500">
-              Nous vous répondrons dans les plus brefs délais.
-            </p>
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-accent-600 via-primary-600 to-accent-500 bg-clip-text text-transparent">
+            Contact
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto mb-6 rounded-full" />
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Vous avez une question ou souhaitez collaborer ? Nous sommes à votre écoute.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Contact Info Cards */}
+          <div className="lg:col-span-1 space-y-6">
+            {/* Email Card */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center lg:text-left">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center mb-4 mx-auto lg:mx-0 group-hover:from-primary-200 group-hover:to-accent-200 transition-all duration-300">
+                <Mail className="w-7 h-7 text-primary-600 group-hover:text-accent-600 transition-colors" />
+              </div>
+              <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+                Email
+              </h3>
+              <p className="text-sm text-gray-600 mb-3">
+                Contactez-nous par email
+              </p>
+              <a
+                href="mailto:info@mobutuzemanga.com"
+                className="text-primary-600 hover:text-accent-600 font-medium text-sm transition-colors"
+              >
+                info@mobutuzemanga.com
+              </a>
+            </div>
+
+            {/* Website Card */}
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group text-center lg:text-left">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center mb-4 mx-auto lg:mx-0 group-hover:from-primary-200 group-hover:to-accent-200 transition-all duration-300">
+                <Globe className="w-7 h-7 text-primary-600 group-hover:text-accent-600 transition-colors" />
+              </div>
+              <h3 className="font-heading text-lg font-bold text-gray-900 mb-2">
+                Site Web
+              </h3>
+              <p className="text-sm text-gray-600 mb-3">
+                Visitez notre site principal
+              </p>
+              <a
+                href="https://mobutuzemanga.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-600 hover:text-accent-600 font-medium text-sm transition-colors"
+              >
+                mobutuzemanga.com
+              </a>
+            </div>
+
+            {/* Info Box */}
+            <div className="bg-gradient-to-br from-primary-50 to-accent-50 p-6 rounded-2xl border border-primary-100 text-center lg:text-left">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <strong className="text-primary-700 font-semibold">Réponse rapide</strong>
+                <br />
+                Nous nous engageons à vous répondre dans les 24 heures ouvrées.
+              </p>
+            </div>
           </div>
 
-          {/* Contact form */}
-          <div className="bg-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100">
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              {submitted ? (
+                <Alert className="bg-gradient-to-br from-secondary-50 to-secondary-100 border-secondary-200">
+                  <CheckCircle className="h-6 w-6 text-secondary-600" />
+                  <AlertTitle className="text-secondary-700 font-bold text-xl">
+                    Merci pour votre message !
+                  </AlertTitle>
+                  <AlertDescription className="text-gray-700 mt-2">
+                    Nous avons bien reçu votre demande et nous vous répondrons dans les plus brefs délais.
+                  </AlertDescription>
+                </Alert>
+              ) : (
+                <>
+                  {error && (
+                    <Alert className="bg-red-50 border-red-200 mb-6">
+                      <AlertDescription className="text-red-600 font-medium">
+                        {error}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot */}
+                    <input
+                      type="text"
+                      name="honeypot"
+                      value={formData.honeypot}
+                      onChange={(e) =>
+                        setFormData({ ...formData, honeypot: e.target.value })
+                      }
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
 
-            {submitted ? (
-              <Alert className="bg-secondary-500/10 border-secondary-500/30">
-                <CheckCircle className="h-5 w-5 text-secondary-500" />
-                <AlertTitle className="text-secondary-500 font-medium text-lg">
-                  Merci pour votre message !
-                </AlertTitle>
-                <AlertDescription className="text-gray-600">
-                  Nous vous répondrons dans les plus brefs délais.
-                </AlertDescription>
-              </Alert>
-            ) : (
-              <>
-                {error && (
-                  <Alert className="bg-red-50 border-red-200 mb-4">
-                    <AlertDescription className="text-red-600">
-                      {error}
-                    </AlertDescription>
-                  </Alert>
-                )}
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Honeypot */}
-                <input
-                  type="text"
-                  name="honeypot"
-                  value={formData.honeypot}
-                  onChange={(e) =>
-                    setFormData({ ...formData, honeypot: e.target.value })
-                  }
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  aria-hidden="true"
-                />
+                    {/* Name Field */}
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-gray-700 font-semibold flex items-center gap-2">
+                        <User className="w-4 h-4 text-primary-600" />
+                        Nom complet
+                      </Label>
+                      <Input
+                        type="text"
+                        id="name"
+                        required
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
+                        placeholder="Votre nom"
+                        className="h-12 border-gray-200 focus:border-primary-500 focus:ring-primary-500"
+                      />
+                    </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nom complet</Label>
-                  <Input
-                    type="text"
-                    id="name"
-                    required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    placeholder="Votre nom"
-                    className="h-12"
-                  />
-                </div>
+                    {/* Email Field */}
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-gray-700 font-semibold flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-primary-600" />
+                        Email
+                      </Label>
+                      <Input
+                        type="email"
+                        id="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        placeholder="votre@email.com"
+                        className="h-12 border-gray-200 focus:border-primary-500 focus:ring-primary-500"
+                      />
+                    </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    type="email"
-                    id="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="votre@email.com"
-                    className="h-12"
-                  />
-                </div>
+                    {/* Message Field */}
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-gray-700 font-semibold flex items-center gap-2">
+                        <MessageSquare className="w-4 h-4 text-primary-600" />
+                        Message
+                      </Label>
+                      <Textarea
+                        id="message"
+                        required
+                        rows={6}
+                        value={formData.message}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
+                        placeholder="Décrivez votre demande en détail..."
+                        className="resize-none border-gray-200 focus:border-primary-500 focus:ring-primary-500"
+                      />
+                    </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    required
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder="Votre message..."
-                    className="resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={loading}
-                  className="w-full bg-primary-600 hover:bg-primary-700 shadow-lg shadow-primary-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loading ? "Envoi en cours..." : "Envoyer le message"}
-                </Button>
-              </form>
-              </>
-            )}
+                    {/* Submit Button */}
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={loading}
+                      className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 h-12 text-base font-semibold"
+                    >
+                      {loading ? (
+                        <span className="flex items-center gap-2">
+                          <span className="animate-spin">⏳</span>
+                          Envoi en cours...
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          <Send className="w-5 h-5" />
+                          Envoyer le message
+                        </span>
+                      )}
+                    </Button>
+                  </form>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
