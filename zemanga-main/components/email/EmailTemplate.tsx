@@ -393,6 +393,11 @@ export const ContactNotificationTemplate: React.FC<ContactNotificationProps> = (
         <div style={styles.container}>
           {/* Header */}
           <div style={styles.header}>
+            <img
+              src={`${config.website}/images/ad-majoribus.webp`}
+              alt="Blason Mobutu Zemanga"
+              style={styles.logo}
+            />
             <h1 style={styles.headerName}>Nouveau Message</h1>
             <p style={styles.headerMotto}>via {config.website}</p>
           </div>
