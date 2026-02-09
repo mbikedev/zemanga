@@ -29,20 +29,16 @@ export default function Contact() {
     setError("");
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Send via your styled email API
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '60703374-0885-4d4c-91be-907d9cf8423a',
-          subject: 'Nouveau message depuis mobutuzemanga.com',
-          from_name: formData.name,
+          name: formData.name,
           email: formData.email,
-          replyto: formData.email,
-          'Message': '📩 Nouveau formulaire de contact reçu sur votre site web. Détails ci-dessous:\n\n' + formData.message,
-          'Nom du contact': formData.name,
-          'Email du contact': formData.email,
+          message: formData.message,
         }),
       });
 
@@ -52,7 +48,7 @@ export default function Contact() {
         setSubmitted(true);
         setFormData({ name: "", email: "", message: "", honeypot: "" });
       } else {
-        setError(data.message || "Une erreur est survenue. Veuillez réessayer.");
+        setError(data.error || "Une erreur est survenue. Veuillez réessayer.");
       }
     } catch (err) {
       setError("Impossible d'envoyer le message. Vérifiez votre connexion.");
