@@ -105,7 +105,7 @@ export async function POST(request: Request) {
 
     // Render email templates to HTML
     const notificationHtml = await render(
-      ContactNotificationTemplate({
+      await ContactNotificationTemplate({
         senderName: name,
         senderEmail: email,
         message
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
     );
 
     const autoReplyHtml = await render(
-      AutoReplyTemplate({ recipientName: name })
+      await AutoReplyTemplate({ recipientName: name })
     );
 
     // Send notification to site owner
@@ -172,7 +172,7 @@ export async function POST(request: Request) {
 
     // Render email templates to HTML
     const notificationHtml = await render(
-      ContactNotificationTemplate({
+      await ContactNotificationTemplate({
         senderName: name,
         senderEmail: email,
         message
@@ -180,7 +180,7 @@ export async function POST(request: Request) {
     );
 
     const autoReplyHtml = await render(
-      AutoReplyTemplate({ recipientName: name })
+      await AutoReplyTemplate({ recipientName: name })
     );
 
     // Send notification to site owner
@@ -246,7 +246,7 @@ export async function POST(request: Request) {
 
     // Render email templates to HTML
     const notificationHtml = await render(
-      ContactNotificationTemplate({
+      await ContactNotificationTemplate({
         senderName: name,
         senderEmail: email,
         message
@@ -254,7 +254,7 @@ export async function POST(request: Request) {
     );
 
     const autoReplyHtml = await render(
-      AutoReplyTemplate({ recipientName: name })
+      await AutoReplyTemplate({ recipientName: name })
     );
 
     // Send notification to you (site owner)
