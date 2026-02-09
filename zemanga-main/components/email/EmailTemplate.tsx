@@ -13,6 +13,8 @@ const config = {
   email: 'info@mobutuzemanga.com',
   phone: '+243 85 290 82 97',
   website: 'https://mobutuzemanga.com',
+  // Use Netlify URL for email images (more reliable)
+  emailBaseUrl: 'https://zemanga.netlify.app',
   motto: 'Ad majoribus dei auxilio',
   mottoTranslation: 'Avec l\'aide de Dieu et des ancêtres',
   titles: [
@@ -265,7 +267,7 @@ export const EmailTemplate: React.FC<EmailTemplateProps> = ({
           <div style={styles.header}>
             {/* Coat of Arms - replace with actual image URL when deployed */}
             <img
-              src={`${config.website}/images/ad-majoribus.webp`}
+              src={`${config.emailBaseUrl}/images/ad-majoribus.webp`}
               alt="Blason Mobutu Zemanga"
               style={styles.logo}
             />
@@ -394,7 +396,7 @@ export const ContactNotificationTemplate: React.FC<ContactNotificationProps> = (
           {/* Header */}
           <div style={styles.header}>
             <img
-              src={`${config.website}/images/ad-majoribus.webp`}
+              src={`${config.emailBaseUrl}/images/ad-majoribus.webp`}
               alt="Blason Mobutu Zemanga"
               style={styles.logo}
             />
@@ -552,7 +554,7 @@ export const AutoReplyTemplate: React.FC<AutoReplyProps> = ({
           {/* Header */}
           <div style={styles.header}>
             <img
-              src={`${config.website}/images/ad-majoribus.webp`}
+              src={`${config.emailBaseUrl}/images/ad-majoribus.webp`}
               alt="Blason Mobutu Zemanga"
               style={styles.logo}
             />
