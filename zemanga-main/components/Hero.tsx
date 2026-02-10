@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
@@ -30,9 +31,13 @@ export default function Hero() {
           <div className="absolute -inset-6 bg-gradient-to-r from-primary-400/30 via-accent-400/30 to-primary-400/30 rounded-3xl blur-3xl group-hover:blur-[60px] transition-all duration-700 opacity-60 group-hover:opacity-80 animate-pulse" style={{ animationDuration: '4s' }}></div>
           <div className="relative bg-white p-6 sm:p-8 rounded-3xl shadow-2xl ring-2 ring-primary-200/50 group-hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] group-hover:scale-[1.03] transition-all duration-700">
             <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-accent-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <img
-              src="/images/ad-majoribus.jpg"
+            <Image
+              src="/images/ad-majoribus.webp"
               alt="Blason Mobutu Zemanga"
+              width={400}
+              height={500}
+              priority
+              fetchPriority="high"
               className="relative w-full h-auto mx-auto rounded-2xl"
             />
           </div>

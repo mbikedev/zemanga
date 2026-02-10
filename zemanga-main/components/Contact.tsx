@@ -91,7 +91,7 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:info@mobutuzemanga.com"
-                className="text-primary-600 hover:text-accent-600 font-medium text-sm transition-colors"
+                className="text-primary-700 hover:text-accent-500 font-medium text-sm transition-colors underline"
               >
                 info@mobutuzemanga.com
               </a>

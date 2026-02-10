@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
@@ -5,9 +6,12 @@ export default function Footer() {
     <footer className="bg-accent-500 text-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center">
-          <img
-            src="/images/ad-majoribus.jpg"
+          <Image
+            src="/images/ad-majoribus.webp"
             alt="Blason Mobutu Zemanga"
+            width={64}
+            height={80}
+            loading="lazy"
             className="w-16 h-auto mb-4 opacity-80"
           />
 
@@ -22,7 +26,7 @@ export default function Footer() {
           <Button
             variant="outline"
             asChild
-            className="border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white mb-8"
+            className="border-primary-100 text-primary-100 hover:bg-primary-500 hover:text-white mb-8"
           >
             <a
               href="https://mobutuzemanga.com"
@@ -34,11 +38,11 @@ export default function Footer() {
           </Button>
 
           <div className="w-full border-t border-white/10 pt-6">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               &copy; {new Date().getFullYear()} Mobutu Zemanga. Tous droits
               réservés.
             </p>
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-gray-300 text-sm mt-2">
               Conception du site par Mbagnick Gaye
             </p>
           </div>

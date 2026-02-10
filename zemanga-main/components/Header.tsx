@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, Home, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,9 +48,11 @@ export default function Header() {
           >
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
-              <img
-                src="/images/ad-majoribus.jpg"
+              <Image
+                src="/images/ad-majoribus.webp"
                 alt="Blason Mobutu Zemanga"
+                width={48}
+                height={48}
                 className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full ring-2 ring-primary-200/50 group-hover:ring-primary-400 transition-all duration-300"
               />
             </div>
@@ -111,9 +114,11 @@ export default function Header() {
                 <div className="relative flex items-center gap-3">
                   <div className="relative">
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-40"></div>
-                    <img
-                      src="/images/ad-majoribus.jpg"
+                    <Image
+                      src="/images/ad-majoribus.webp"
                       alt="Blason"
+                      width={56}
+                      height={56}
                       className="relative w-14 h-14 object-contain rounded-full bg-white p-1 shadow-lg"
                     />
                   </div>
