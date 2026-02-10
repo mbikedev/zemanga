@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const titles = [
   "Chef d'Entreprises",
@@ -84,17 +84,6 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            asChild
-            size="lg"
-            className="group relative overflow-hidden bg-gradient-to-r from-purple-300 to-orange-400 hover:from-orange-800 hover:to-orange-900 text-white shadow-xl shadow-primary-400/30 hover:shadow-2xl hover:shadow-primary-500/40 hover:scale-105 transition-all duration-300 px-8 py-6 text-base font-bold"
-          >
-            <a href="#a-propos" className="flex items-center gap-2 text-white font-bold">
-              <span>Découvrir mon parcours</span>
-              <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
-            </a>
-          </Button>
-
           <Button
             asChild
             size="lg"
