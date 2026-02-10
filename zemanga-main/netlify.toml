@@ -5,6 +5,13 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Redirect zemangamobutu.com to mobutuzemanga.com
+[[redirects]]
+  from = "https://zemangamobutu.com/*"
+  to = "https://mobutuzemanga.com/:splat"
+  status = 301
+  force = true
+
 # Environment variables (set via Netlify CLI or UI)
 # SMTP_HOST
 # SMTP_PORT
