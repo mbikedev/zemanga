@@ -166,7 +166,7 @@ export default function Header() {
                 <SheetClose asChild>
                   <Button
                     asChild
-                    className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                     size="lg"
                   >
                     <a
