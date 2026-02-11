@@ -24,9 +24,8 @@ export default function Footer() {
           </p>
 
           <Button
-            variant="outline"
             asChild
-            className="border-primary-100 text-primary-100 hover:bg-primary-500 hover:text-white mb-8"
+            className="border-2 border-white bg-transparent text-white hover:bg-primary-500 hover:border-primary-500 hover:text-white mb-8 font-bold"
           >
             <a
               href="https://mobutuzemanga.com"
