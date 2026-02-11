@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, Home, Mail, Sparkles } from "lucide-react";
+import { Menu, Home, Mail, Sparkles, User, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,

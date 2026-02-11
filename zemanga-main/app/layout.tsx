@@ -35,15 +35,28 @@ export const metadata: Metadata = {
     "entrepreneur",
     "ONG",
     "recherche",
+    "conseil en stratégie",
+    "partenariats internationaux",
   ],
   authors: [{ name: "Mobutu Zemanga" }],
+  metadataBase: new URL("https://mobutuzemanga.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Mobutu Zemanga",
-    description: "Chef d'Entreprises & Consultant International",
+    title: "Mobutu Zemanga | Chef d'Entreprises & Consultant International",
+    description:
+      "Site officiel de Mobutu Zemanga - Chef d'Entreprises, Dirigeant d'ONGs, Directeur de Centres de Recherches et Consultant International.",
     url: "https://mobutuzemanga.com",
     siteName: "Mobutu Zemanga",
     locale: "fr_FR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mobutu Zemanga | Chef d'Entreprises & Consultant International",
+    description:
+      "Site officiel de Mobutu Zemanga - Chef d'Entreprises, Dirigeant d'ONGs, Directeur de Centres de Recherches et Consultant International.",
   },
 };
 

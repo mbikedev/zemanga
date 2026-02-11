@@ -153,6 +153,7 @@ export default function Contact() {
                       <Input
                         type="text"
                         id="name"
+                        autoComplete="name"
                         required
                         value={formData.name}
                         onChange={(e) =>
@@ -172,6 +173,7 @@ export default function Contact() {
                       <Input
                         type="email"
                         id="email"
+                        autoComplete="email"
                         required
                         value={formData.email}
                         onChange={(e) =>

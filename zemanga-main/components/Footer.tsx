@@ -12,7 +12,8 @@ export default function Footer() {
             width={64}
             height={80}
             loading="lazy"
-            className="w-16 h-auto mb-4 opacity-80"
+            style={{ width: "auto", height: "auto" }}
+            className="mb-4 opacity-80"
           />
 
           <h3 className="font-heading text-2xl sm:text-3xl lg:text-xl font-bold tracking-wide mb-2">
