@@ -102,7 +102,7 @@ export default function Contact() {
               <p className="text-sm text-gray-700 leading-relaxed">
                 <strong className="text-primary-700 font-semibold">Réponse rapide</strong>
                 <br />
-                Nous nous engageons à vous répondre dans les 24 heures ouvrées.
+                Nous nous engageons à vous répondre dans les meilleurs délais.
               </p>
             </div>
           </div>
