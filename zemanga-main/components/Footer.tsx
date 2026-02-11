@@ -15,7 +15,7 @@ export default function Footer() {
             className="w-16 h-auto mb-4 opacity-80"
           />
 
-          <h3 className="font-heading text-xl font-bold tracking-wide mb-2">
+          <h3 className="font-heading text-2xl sm:text-3xl lg:text-xl font-bold tracking-wide mb-2">
             MOBUTU ZEMANGA
           </h3>
 
