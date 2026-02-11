@@ -182,8 +182,8 @@ export default function Header() {
               {/* Footer */}
               <SheetFooter className="border-t border-gray-200 bg-gradient-to-br from-gray-50 to-primary-50/30 px-6 py-5">
                 <div className="w-full text-center">
-                  <p className="text-xs font-medium bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                    Mobutu Zemanga
+                  <p className="text-lg font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent tracking-wide">
+                    MOBUTU ZEMANGA
                   </p>
                 </div>
               </SheetFooter>
