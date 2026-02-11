@@ -123,7 +123,7 @@ export default function Header() {
                     />
                   </div>
                   <div>
-                    <SheetTitle className="font-heading text-lg tracking-wide bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
+                    <SheetTitle className="font-heading text-2xl sm:text-3xl tracking-wide bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
                       MOBUTU ZEMANGA
                     </SheetTitle>
                     <p className="font-motto text-xs italic text-primary-600/80 mt-0.5">
