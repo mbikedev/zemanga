@@ -219,21 +219,42 @@ import nodemailer from 'nodemailer';
 import { render } from '@react-email/render';
 import { ContactNotificationTemplate, AutoReplyTemplate } from '@/components/email/EmailTemplate';
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.lws.fr',
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: false, // true for 465, false for 587
-  auth: {
-    user: process.env.SMTP_USER, // Your LWS email: info@mobutuzemanga.com
-    pass: process.env.SMTP_PASSWORD, // Your LWS email password
-  },
-  tls: {
-    rejectUnauthorized: false // For development, remove in production if SSL works
+function createTransporter() {
+  const host = process.env.SMTP_HOST || 'smtp.lws.fr';
+  const port = Number(process.env.SMTP_PORT) || 587;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASSWORD;
+
+  if (!user || !pass) {
+    console.error('SMTP credentials missing:', { host, port, hasUser: !!user, hasPass: !!pass });
+    return null;
   }
-});
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    auth: { user, pass },
+    tls: {
+      rejectUnauthorized: false,
+    },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+  });
+}
 
 export async function POST(request: Request) {
   try {
+    const transporter = createTransporter();
+
+    if (!transporter) {
+      return NextResponse.json(
+        { error: 'Email service not configured. SMTP credentials are missing.' },
+        { status: 503 }
+      );
+    }
+
     const { name, email, message } = await request.json();
 
     // Validate input
@@ -241,6 +262,20 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
+      );
+    }
+
+    // Verify SMTP connection first
+    try {
+      await transporter.verify();
+    } catch (verifyError) {
+      console.error('SMTP connection failed:', verifyError);
+      return NextResponse.json(
+        {
+          error: 'Unable to connect to email server',
+          details: verifyError instanceof Error ? verifyError.message : 'Connection failed'
+        },
+        { status: 503 }
       );
     }
 
@@ -263,7 +298,7 @@ export async function POST(request: Request) {
       to: 'info@mobutuzemanga.com',
       subject: `Nouveau message de ${name}`,
       html: notificationHtml,
-      replyTo: email, // So you can reply directly to the sender
+      replyTo: email,
     });
 
     // Send auto-reply to sender
