@@ -7,14 +7,14 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700"],
-  preload: true,
+  preload: false,
 });
 
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 const ebGaramond = EB_Garamond({
@@ -22,7 +22,7 @@ const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "600"],
-  preload: true,
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -35,15 +35,28 @@ export const metadata: Metadata = {
     "entrepreneur",
     "ONG",
     "recherche",
+    "conseil en stratégie",
+    "partenariats internationaux",
   ],
   authors: [{ name: "Mobutu Zemanga" }],
+  metadataBase: new URL("https://mobutuzemanga.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Mobutu Zemanga",
-    description: "Chef d'Entreprises & Consultant International",
+    title: "Mobutu Zemanga | Chef d'Entreprises & Consultant International",
+    description:
+      "Site officiel de Mobutu Zemanga - Chef d'Entreprises, Dirigeant d'ONGs, Directeur de Centres de Recherches et Consultant International.",
     url: "https://mobutuzemanga.com",
     siteName: "Mobutu Zemanga",
     locale: "fr_FR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mobutu Zemanga | Chef d'Entreprises & Consultant International",
+    description:
+      "Site officiel de Mobutu Zemanga - Chef d'Entreprises, Dirigeant d'ONGs, Directeur de Centres de Recherches et Consultant International.",
   },
 };
 
@@ -54,6 +67,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head />
       <body
         className={`${playfairDisplay.variable} ${inter.variable} ${ebGaramond.variable} antialiased`}
       >

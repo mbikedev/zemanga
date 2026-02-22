@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, Home, User, Briefcase, Mail, ExternalLink, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Menu, Home, Mail, Sparkles, User, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -15,8 +16,6 @@ import {
 
 const navLinks = [
   { href: "#accueil", label: "Accueil", icon: Home },
-  { href: "#a-propos", label: "À Propos", icon: User },
-  { href: "#services", label: "Services", icon: Briefcase },
   { href: "#contact", label: "Contact", icon: Mail },
 ];
 
@@ -49,9 +48,11 @@ export default function Header() {
           >
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
-              <img
-                src="/images/ad-majoribus.jpg"
+              <Image
+                src="/images/ad-majoribus.webp"
                 alt="Blason Mobutu Zemanga"
+                width={48}
+                height={48}
                 className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-full ring-2 ring-primary-200/50 group-hover:ring-primary-400 transition-all duration-300"
               />
             </div>
@@ -85,7 +86,7 @@ export default function Header() {
             })}
             <Button
               asChild
-              className="ml-2 bg-gradient-to-r from-purple-300 to-orange-400 hover:from-orange-800 hover:to-orange-900 text-white shadow-lg hover:shadow-xl hover:shadow-primary-300/50 hover:scale-105 transition-all duration-300 gap-2 font-bold"
+              className="ml-2 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white shadow-lg hover:shadow-xl hover:shadow-primary-300/50 hover:scale-105 transition-all duration-300 gap-2 font-bold"
             >
               <a href="#contact" className="text-white font-bold">
                 <Sparkles className="w-4 h-4" />
@@ -113,9 +114,11 @@ export default function Header() {
                 <div className="relative flex items-center gap-3">
                   <div className="relative">
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full blur opacity-40"></div>
-                    <img
-                      src="/images/ad-majoribus.jpg"
+                    <Image
+                      src="/images/ad-majoribus.webp"
                       alt="Blason"
+                      width={56}
+                      height={56}
                       className="relative w-14 h-14 object-contain rounded-full bg-white p-1 shadow-lg"
                     />
                   </div>
@@ -163,7 +166,7 @@ export default function Header() {
                 <SheetClose asChild>
                   <Button
                     asChild
-                    className="w-full bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                     size="lg"
                   >
                     <a
@@ -179,8 +182,8 @@ export default function Header() {
               {/* Footer */}
               <SheetFooter className="border-t border-gray-200 bg-gradient-to-br from-gray-50 to-primary-50/30 px-6 py-5">
                 <div className="w-full text-center">
-                  <p className="text-xs font-medium bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
-                    Mobutu Zemanga
+                  <p className="text-lg font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent tracking-wide">
+                    MOBUTU ZEMANGA
                   </p>
                 </div>
               </SheetFooter>

@@ -91,7 +91,7 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:info@mobutuzemanga.com"
-                className="text-primary-600 hover:text-accent-600 font-medium text-sm transition-colors"
+                className="text-primary-700 hover:text-accent-500 font-medium text-sm transition-colors underline"
               >
                 info@mobutuzemanga.com
               </a>
@@ -102,7 +102,7 @@ export default function Contact() {
               <p className="text-sm text-gray-700 leading-relaxed">
                 <strong className="text-primary-700 font-semibold">Réponse rapide</strong>
                 <br />
-                Nous nous engageons à vous répondre dans les 24 heures ouvrées.
+                Nous nous engageons à vous répondre dans les meilleurs délais.
               </p>
             </div>
           </div>
@@ -153,6 +153,7 @@ export default function Contact() {
                       <Input
                         type="text"
                         id="name"
+                        autoComplete="name"
                         required
                         value={formData.name}
                         onChange={(e) =>
@@ -172,6 +173,7 @@ export default function Contact() {
                       <Input
                         type="email"
                         id="email"
+                        autoComplete="email"
                         required
                         value={formData.email}
                         onChange={(e) =>
@@ -206,7 +208,7 @@ export default function Contact() {
                       type="submit"
                       size="lg"
                       disabled={loading}
-                      className="w-full bg-gradient-to-r from-purple-300 to-orange-400 hover:from-orange-800 hover:to-orange-900 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 h-12 text-base font-bold"
+                      className="w-full bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 h-12 text-base font-bold"
                     >
                       {loading ? (
                         <span className="flex items-center gap-2">

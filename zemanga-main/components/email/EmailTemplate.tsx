@@ -577,7 +577,7 @@ export const AutoReplyTemplate: React.FC<AutoReplyProps> = ({
             <div style={styles.highlightBox}>
               <p style={styles.highlightText}>
                 Votre message est important pour moi. Je m'efforce de répondre
-                à toutes les demandes sous 24 à 48 heures ouvrables.
+                à toutes les demandes dans les meilleurs délais.
               </p>
             </div>
 
